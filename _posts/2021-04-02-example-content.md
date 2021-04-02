@@ -5,7 +5,7 @@ title: Example content
 
 
 <div class="message">
-  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+  Howdy! This blog post shows step-by-step instructions on how to get started on the website TryHackMe. The instructions assume that you already have a fully functional Kali Linux virtual machine. 
 </div>
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
