@@ -22,5 +22,5 @@ paginate:         5
 # Custom vars
 version:          2.1.0
 
-github:           https://github.com/jacobkalat/
+github:           
   repo:           https://github.com/jacobkalat/jacobkalat.github.io
