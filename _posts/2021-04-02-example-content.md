@@ -49,12 +49,6 @@ To connect your VM (virtual machine) to TryHackMe's network we are going to use 
   foo@bar:~$ sudo apt update && sudo apt upgrade
 {% endhighlight %}
 
-Allow this to finish. After, install the OpenVPN package using
-
-{% highlight %}
-foo@bar:~$ sudo apt install openvpn
-{% endhighlight %}
-
 > Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
 Etiam porta **sem malesuada magna** mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
