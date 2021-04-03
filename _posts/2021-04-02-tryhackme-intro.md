@@ -56,9 +56,9 @@ foo@bar:~$ sudo apt install openvpn
 ```
 
 
-Now that we have OpenVPN installed, we need to get our configuration file from TryHackMe. Navigate to their page explaining connecting via <a href="https://tryhackme.com/access?o=vpn">OpenVPN</a>. After changing your region to your preference, click the button that says *Download My Configuration File*. 
+Now that we have OpenVPN installed, we need to get our configuration file from TryHackMe. Navigate to their page explaining connecting via <a href="https://tryhackme.com/access?o=vpn">OpenVPN</a>. After changing your region to your preference, click the button that says *Download My Configuration File*.
 
-<img href="/img/tryhackme/openvpn-access-details.png">
+![placeholder](/img/tryhackme/openvpn-access-details.png "OpenVPN Access Details")
 
 Now that the file is downloaded, we can open a terminal and connect using the following command
 
