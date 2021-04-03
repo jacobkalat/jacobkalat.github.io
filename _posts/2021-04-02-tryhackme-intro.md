@@ -46,7 +46,7 @@ The title of the machine will vary from room to room. After some time the IP add
 To connect your VM (virtual machine) to TryHackMe's network we are going to use OpenVPN. To get started open up a terminal and type the following to update your machine.
 
 ```console
-  foo@bar:~$ sudo apt update && sudo apt upgrade
+foo@bar:~$ sudo apt update && sudo apt upgrade
 ```
 
 Allow this to finish. After, install the OpenVPN package using
