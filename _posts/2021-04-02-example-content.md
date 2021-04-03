@@ -27,7 +27,7 @@ Each learning path consists of several *rooms*. These are the individual learnin
 
 Click on the room **Tutorial** so we can get started!
 
-##Tutorial
+## Tutorial
 
 To connect to TryHackMe's network we have to connect using OpenVPN. Make sure you open up the <a href="https://tryhackme.com/room/tutorial">Tutorial Room</a> in the browser of your Kali Linux virtual machine. This way when we download something it will be stored in the virtual machine rather then your host machine. 
 
@@ -41,7 +41,13 @@ This button will be a constant across all rooms. This is what starts the vulnera
 
 The title of the machine will vary from room to room. After some time the IP address should appear. This is the local IP address of the vulnerable machine for this room. You will only be able to reach this IP address if you have connected to TryHackMe's network. To do this we will be using OpenVPN in our Kali Linux virtual machine.
 
+### OpenVPN
 
+To connect your VM (virtual machine) to TryHackMe's network we are going to use OpenVPN. To get started open up a terminal and type the following to update your machine.
+
+{% highlight bash %}
+  foo@bar:~$ sudo apt update && sudo apt upgrade
+{% endhighlight %}
 
 
 > Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
