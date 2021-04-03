@@ -1,0 +1,26 @@
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
+
+# Permalinks
+permalink:        pretty
+relative_permalinks: false
+
+# Setup
+title:            jake kalat
+tagline:          'computer stuff'
+description:      'blog with stuff that i find interesting'
+url:              http://jacobkalat.github.io
+baseurl:          /
+
+author:
+  name:           'Jacob Kalat'
+  url:            https://twitter.com/j_kalat
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:           
+  repo:           https://github.com/jacobkalat/jacobkalat.github.io
