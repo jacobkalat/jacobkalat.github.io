@@ -14,14 +14,35 @@ Once you have created your new account it should ask your experience level, why 
 
 ![placeholder](/img/tryhackme/complete-beginner.png "Complete Beginner path")
 
-As you can see this learning path will introduce you to all of the following:
+As you can see this learning path will introduces all of the following:
 - Linux basics
 - Web application security
 - Network security
 - Scripting challenges
 - Privilege Escalation
 
-Each learning path consists of several *rooms*. These are the individual learning modules that present you with tasks, as well as provide you the vulnerable machines. 
+Each learning path consists of several *rooms*. These are the individual learning modules that present you with tasks, as well as provide you with the vulnerable machines. To be able to use the machines that are vulnerable in each *room*, we first have to connect to TryHackMe's network. The **Complete Beginner Introduction** rooms introduce how to do this. 
+
+![placeholder](/img/tryhackme/complete-beginner-introduction.png "Complete Beginner Introduction")
+
+Click on the room **Tutorial** so we can get started!
+
+##Tutorial
+
+To connect to TryHackMe's network we have to connect using OpenVPN. Make sure you open up the <a href="https://tryhackme.com/room/tutorial">Tutorial Room</a> in the browser of your Kali Linux virtual machine. This way when we download something it will be stored in the virtual machine rather then your host machine. 
+
+Hit the start machine button that the arrow points to.
+
+![placeholder](/img/tryhackme/starting-your-first-machine.png "Starting Your First Machine")
+
+This button will be a constant across all rooms. This is what starts the vulnerable machine that you will be hacking. You should see the following new bar appear.
+
+![placeholder](/img/tryhackme/machine-status.png "Active Machine Information")
+
+The title of the machine will vary from room to room. After some time the IP address should appear. This is the local IP address of the vulnerable machine for this room. You will only be able to reach this IP address if you have connected to TryHackMe's network. To do this we will be using OpenVPN in our Kali Linux virtual machine.
+
+
+
 
 > Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
@@ -40,9 +61,6 @@ HTML defines a long list of available inline tags, a complete list of which can 
 
 Most of these elements are styled by browsers with few modifications on our part.
 
-## Heading
-
-Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 
 ### Code
 
