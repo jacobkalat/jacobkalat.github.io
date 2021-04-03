@@ -45,16 +45,16 @@ The title of the machine will vary from room to room. After some time the IP add
 
 To connect your VM (virtual machine) to TryHackMe's network we are going to use OpenVPN. To get started open up a terminal and type the following to update your machine. This explanation is for 
 
-{% highlight %}
+<!-- {% highlight %}
 foo@bar:~$ sudo apt update && sudo apt upgrade
-{% endhighlight %}
+{% endhighlight %} -->
 
 Allow this to finish. After, install the OpenVPN package using
 
-{% highlight %}
+<!-- {% highlight %}
 foo@bar:~$ sudo apt install openvpn
 {% endhighlight %}
-
+ -->
 
 Now that we have OpenVPN installed, we need to get our configuration file from TryHackMe. Navigate to their page explaining connecting via <a href="https://tryhackme.com/access?o=vpn">OpenVPN</a>. After changing your region to your preference, click the button that says *Download My Configuration File*. 
 
@@ -62,10 +62,10 @@ Now that we have OpenVPN installed, we need to get our configuration file from T
 
 Now that the file is downloaded, we can open a terminal and connect using the following command
 
-{% highlight %}
+<!-- {% highlight %}
 foo@bar:~$ sudo openvpn /path/to/config_file
 {% endhighlight %}
-
+ -->
 Replace */path/to/config_file* with the location of the downloaded configuration file. If you ran this command correctly, you should see that your IP address is not long 0.0.0.0 in the *OpenVPN Access Details* pane. This is now your local IP address in TryHackMe's network.
 
 ### Finishing the Tutorial
