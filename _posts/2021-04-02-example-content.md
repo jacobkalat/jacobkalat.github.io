@@ -47,14 +47,14 @@ To connect your VM (virtual machine) to TryHackMe's network we are going to use 
 
 <!-- {% highlight %}
 foo@bar:~$ sudo apt update && sudo apt upgrade
-{% endhighlight %} -->
+{% endhighlight %}
 
 Allow this to finish. After, install the OpenVPN package using
 
-<!-- {% highlight %}
+{% highlight %}
 foo@bar:~$ sudo apt install openvpn
 {% endhighlight %}
- -->
+
 
 Now that we have OpenVPN installed, we need to get our configuration file from TryHackMe. Navigate to their page explaining connecting via <a href="https://tryhackme.com/access?o=vpn">OpenVPN</a>. After changing your region to your preference, click the button that says *Download My Configuration File*. 
 
@@ -62,17 +62,17 @@ Now that we have OpenVPN installed, we need to get our configuration file from T
 
 Now that the file is downloaded, we can open a terminal and connect using the following command
 
-<!-- {% highlight %}
+{% highlight %}
 foo@bar:~$ sudo openvpn /path/to/config_file
 {% endhighlight %}
- -->
+
 Replace */path/to/config_file* with the location of the downloaded configuration file. If you ran this command correctly, you should see that your IP address is not long 0.0.0.0 in the *OpenVPN Access Details* pane. This is now your local IP address in TryHackMe's network.
 
 ### Finishing the Tutorial
 
 Now back at the <a href="https://tryhackme.com/room/tutorial">Tutorial Room</a> you should see two IP addresses on your screen. The one that is on the top bar is the IP of your machine on TryHackMe's network. The IP shown in the *Active Machine Information* panel is the IP of this rooms machine.
 
-With this in mind, to complete the task, copy and paste the IP address of the room's machine to the URL bar of your browser in the VM. If the page isn't loading you may have to restart the rooms machine. 
+With this in mind, to complete the task, copy and paste the IP address of the room's machine to the URL bar of your browser in the VM. If the page isn't loading you may have to restart the rooms machine.  -->
 
 
 > Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
