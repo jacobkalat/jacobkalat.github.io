@@ -35,7 +35,7 @@ Hit the start machine button that the arrow points to.
 
 ![placeholder](/img/tryhackme/starting-your-first-machine.png "Starting Your First Machine")
 
-This button will be a constant across all rooms. This is what starts the vulnerable machine that you will be hacking. You should see the following new bar appear.
+<!-- This button will be a constant across all rooms. This is what starts the vulnerable machine that you will be hacking. You should see the following new bar appear.
 
 ![placeholder](/img/tryhackme/machine-status.png "Active Machine Information")
 
@@ -44,7 +44,7 @@ The title of the machine will vary from room to room. After some time the IP add
 ### OpenVPN
 
 To connect your VM (virtual machine) to TryHackMe's network we are going to use OpenVPN. To get started open up a terminal and type the following to update your machine. This explanation is for 
-
+ -->
 <!-- {% highlight %}
 foo@bar:~$ sudo apt update && sudo apt upgrade
 {% endhighlight %}
