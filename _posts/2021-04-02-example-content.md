@@ -8,9 +8,20 @@ title: Getting Started With TryHackMe
   Howdy! This blog post shows step-by-step instructions on how to get started on the website TryHackMe. TryHackMe is a free way to learn and practice cyber security hands on skills. The paid version gives you access to their in-browser Kali Linux machine as well as focuses learning paths.
 </div>
 
-To get started, navigate to <a href="https://tryhackme.com">TryHackMe</a>. Here you can make a new account. If you don't have a Kali Linux machine setup, it may be worth purchasing the TryHackMe membership. This will give you access to their in browser Kali Linux machine. For the purpose of this walkthrough, I assume that you have previously setup a Kali Linux virtual machine, and that is you will be using from here on out. 
+To get started, navigate to <a href="https://tryhackme.com">TryHackMe</a>. Here you can make a new account. If you don't have a Kali Linux machine setup, it may be worth purchasing the TryHackMe membership. This will give you access to their in browser Kali Linux machine. For the purpose of this walkthrough, I assume that you have previously setup a Kali Linux virtual machine, and that you will be using it for all TryHackMe challenges. 
 
 Once you have created your new account it should ask your experience level, why you want to use TryHackMe, and to choose a learning path. For this walkthrough, we will choose the **Complete Beginner** path. 
+
+![placeholder](/img/tryhackme/complete-beginner.png "Complete Beginner path")
+
+As you can see this learning path will introduce you to all of the following:
+- Linux basics
+- Web application security
+- Network security
+- Scripting challenges
+- Privilege Escalation
+
+Each learning path consists of several *rooms*. These are the individual learning modules that present you with tasks, as well as provide you the vulnerable machines. 
 
 > Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
@@ -91,7 +102,7 @@ Integer posuere erat a ante venenatis dapibus posuere velit aliquet. Morbi leo r
 
 Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliquam aliquam metus erat, a pulvinar turpis suscipit at.
 
-![placeholder](/img/tryhackme/complete-beginner.png "Complete Beginner path")
+
 ![placeholder](http://placehold.it/400x200 "Medium example image")
 ![placeholder](http://placehold.it/200x200 "Small example image")
 
