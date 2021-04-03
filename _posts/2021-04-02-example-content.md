@@ -49,6 +49,24 @@ To connect your VM (virtual machine) to TryHackMe's network we are going to use 
   foo@bar:~$ sudo apt update && sudo apt upgrade
 ```
 
+Allow this to finish. After, install the OpenVPN package using
+
+```console
+foo@bar:~$ sudo apt install openvpn
+```
+
+
+Now that we have OpenVPN installed, we need to get our configuration file from TryHackMe. Navigate to their page explaining connecting via <a href="https://tryhackme.com/access?o=vpn">OpenVPN</a>. After changing your region to your preference, click the button that says *Download My Configuration File*. 
+
+![placeholder](/img/tryhackme/openvpn-access-details.png "OpenVPN Access Details")
+
+Now that the file is downloaded, we can open a terminal and connect using the following command
+
+```console
+foo@bar:~$ sudo openvpn /path/to/config_file
+```
+
+
 > Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo. Nullam id dolor id nibh ultricies vehicula ut id elit.
 
 Etiam porta **sem malesuada magna** mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.
