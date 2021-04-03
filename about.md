@@ -3,10 +3,6 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hi! Thanks for checking out my blog. I'm still new to this so bare with me as a figure this all out.
-</p>
-
 Info sec and tech enthusiast blogging about stuff I want to remember or for *UHart Cybersecurity Club* events.
 
 ### Connect:
