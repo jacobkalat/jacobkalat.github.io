@@ -21,6 +21,7 @@ This section reviews the components of the Windows Filtering Platform utilized b
 
 A WFP Provider is a WFP object that is used solely for management purposes. Upon creation of a filter, a provider key can be specified, which associates the filter with a specific service. EDR systems configure persistent providers named accordingly, with descriptions related to their services. All WFP filters created by these EDR systems will be created under their respective providers. This screenshot shows the output of the provider tab of [WFP Explorer](https://github.com/zodiacon/WFPExplorer) on a device with an EDR tool installed.
 
+![WFP Providers](/assets/wfpWizardry/wfpProviders.png)
 
 ### Some great subheading (h3)
 
