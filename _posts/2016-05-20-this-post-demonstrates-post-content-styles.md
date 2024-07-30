@@ -1,30 +1,31 @@
 ---
 layout: post
-title: "This post demonstrates post content styles"
-categories: junk
+title: "WFP Wizardry: Abusing WFP for EDR Evasion"
+categories: EDR Evasion
 author:
-- Bart Simpson
-- Nelson Mandela Muntz
-meta: "Springfield"
+- Jacob Kalat
+meta: ""
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
+This post provides a comprehensive analysis of how EDR systems leverage the Windows Filtering Platform (WFP) to manage network filtering capabilities. Using this knowledge, we can better understand how an attacker may disable features of EDR sensors, such as sending telemetry to the cloud, network containment, firewall rules, and more, to evade defenses.
 
-## Some great heading (h2)
+All testing was done on a single EDR tool. Some EDR tools may use WFP differently, but techniques performed here should apply to other EDR tools.
 
-Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu.
+# Background
 
-Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.
+WFP is a platform provided by Windows that allows external software vendors to modify, monitor, and filter TCP/IP traffic, as well as remote procedure calls (RPCs). WFP is frequently utilized by Endpoint Detection and Response (EDR), antivirus, and Intrusion Prevention/Detection Systems (IPS/IDS) software. EDR systems use the functionality of WFP to log incoming and outbound network connections, provide data about processes making RPCs, network contain devices, and allow communications to the cloud.
 
-## Another great heading (h2)
+This section reviews the components of the Windows Filtering Platform utilized by EDR systems, including potential points of exploitation for an attacker.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.
+## WFP Providers
 
-### Some great subheading (h3)
+A WFP Provider is a WFP object that is used solely for management purposes. Upon creation of a filter, a provider key can be specified, which associates the filter with a specific service. EDR systems configure persistent providers named accordingly, with descriptions related to their services. All WFP filters created by these EDR systems will be created under their respective providers. This screenshot shows the output of the provider tab of [WFP Explorer](https://github.com/zodiacon/WFPExplorer) on a device with an EDR tool installed.
 
-Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum.
+![WFP Providers](../assets/wfpWizardry/wfpProviders.png)
 
-Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.
+
+
+
 
 ### Some great subheading (h3)
 
