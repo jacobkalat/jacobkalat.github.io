@@ -1,12 +1,12 @@
-title: Jacob Kalat
+title: Infosec Stuff
 author:
   name: Jacob Kalat
   email: jacob@jacobkalat.com
 
 # The `>` after `description:` means to ignore line-breaks until next key.
 # If you want to omit the line-break after the end of text, use `>-` instead.
-description: >
-  Infosec stuff
+#description: >
+#  Infosec stuff
 
 # Build settings
 

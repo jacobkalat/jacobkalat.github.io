@@ -41,7 +41,7 @@ Each filter can have one or more conditions that determine if the filter's actio
 
 ![WFP Filter Condition](/assets/wfpWizardry/wfpFilterCondition.png)
 
-This filter has three conditions. The first one, the IP Local Port condition, is matched when the local port of an IPv4 connection matches the hexadecimal number 0x7440 (which is 29760 in decimal). The second condition, the IP Protocol, matches when the protocol is TCP (protocol #6 according to RFC 1700). The third condition checks if any filtering condition flags are set.
+This filter has three conditions. The first one, the IP Local Port condition, is matched when the local port of an IPv4 connection matches the hexadecimal number `0x7440` (which is `29760` in decimal). The second condition, the IP Protocol, matches when the protocol is TCP (protocol #6 according to RFC 1700). The third condition checks if any filtering condition flags are set.
 
 By running the command `netstat -ano`, we can identify the connection that the EDR sensor establishes with the cloud. Notice how the local port matches the one specified in the WFP filter. It is plausible that the EDR software employs this filter to ensure uninterrupted connections to the EDR's cloud component, preventing blockage by other filters.
 
@@ -74,6 +74,11 @@ Information about the EDR callouts couldn't be retrieved. When searching for cal
 ![List Callouts](/assets/wfpWizardry/listCallouts.png)
 
 Above was my attempt to list the callouts using a custom tool. As you can see there are no results. If appropriate permissions to access these filters were obtained, it might be possible to exploit the callouts/filters to circumvent the EDR's network controls.
+
+
+# Hypothesis
+
+Based on the background information, the hypothesis is: manipulation of the WFP filters and callouts used by EDR systems could potentially allow an attacker to bypass or evade the EDR's network controls, security measures, and logging capabilities. This hypothesis posits that by understanding and exploiting the functionality of the Windows Filtering Platform, an attacker could disable key features of the EDR sensors, such as sending telemetry to the cloud, network containment, and firewall rules.
 
 
 
