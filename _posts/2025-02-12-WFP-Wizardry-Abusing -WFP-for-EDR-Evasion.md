@@ -7,7 +7,11 @@ author:
 meta: ""
 ---
 
+**Contributors** | [Jacob Kalat](https://www.linkedin.com/in/jacob-kalat/) | [Casian Ciobanu](https://www.linkedin.com/in/casian-ciobanu-47455587/)
+
 This post provides a comprehensive analysis of how EDR software leverages the Windows Filtering Platform (WFP) to manage network filtering capabilities. Using this knowledge, we can better understand how an attacker may disable features of EDR sensors, such as sending telemetry to the cloud, network containment, firewall rules, and more, to evade defenses.
+
+I'll outline how Casian Ciobanu and I developed a tool to test this capability.
 
 All testing was done on a single EDR tool. Some EDR tools may use WFP differently, but techniques performed here should apply to other EDR tools. 
 
@@ -96,7 +100,11 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 
 ### Validation:
 
+This image shows the WFP filters when the device is network contained. We can see several block filters from our EDR product. We confirm the network containment by trying to reach google.
+
 ![Device in EDR Containment](/assets/wfpWizardry/testcase1validation1.png)
+
+And here we run our tool to lift containment. We can see that all of the block filters created by the EDR were removed. After we can reach google, unlike before.
 
 ![Containment Lifted](/assets/wfpWizardry/testcase1validation2.png)
 
@@ -109,6 +117,9 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 3. Add permit filter to allow all traffic at layer FWPM_LAYER_ALE_AUTH_CONNECT_V4 where the protocol is TCP and the remote port is the C2 port
 
 ### Validation:
+
+On the left we run our tool to network contain the device, blocking all inbound and outbound network connections. After, we add a permit filter to allow network connections to our C2 IP address. 
+The right shows that after running, we cannot reach google but we can reach our C2 IP address.
 
 ![Network Contain but Allow C2 IP](/assets/wfpWizardry/testcase2validation1.png)
 
@@ -127,8 +138,14 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 
 ### Validation:
 
+On the left is our tool running, dynamically resolving the EDR's cloud server IP addresses and adding filters block traffic to them. It also removes any of the EDR's permit filters that get created, and kills active TCP connections to the resolved EDR IP addresses.
+The right image shows that we can still reach Google. Additionally we run some commands to generate EDR telemetry for process create events. You will have to take my word for it, but there were not any process create events for these processes in the EDR tools telemetry. 
+
 ![Blocking EDR telemetry](/assets/wfpWizardry/testcase3validation1.png)
 
+# Conclusion
+
+When we 
 
 ## References
 [https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/](https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/)
