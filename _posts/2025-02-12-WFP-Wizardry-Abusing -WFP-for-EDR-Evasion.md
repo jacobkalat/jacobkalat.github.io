@@ -119,14 +119,14 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 7. Kill any active TCP connections with enumerated EDR IP address using iphlpapi.h - SetTcpEntry()
 8. Infinitely loop steps 3-7
 
-### Validation
+### Validation:
 
 ## References
 [https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/](https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/)
 
 [https://github.com/netero1010/EDRSilencer](https://github.com/netero1010/EDRSilencer)
 
-[https://github.com/zodiacon/WFPExplorer](https://github.com/netero1010/EDRSilencer)
+[https://github.com/zodiacon/WFPExplorer](https://github.com/zodiacon/WFPExplorer)
 
 [https://learn.microsoft.com/en-us/windows/win32/fwp/windows-filtering-platform-architecture-overview](https://learn.microsoft.com/en-us/windows/win32/fwp/windows-filtering-platform-architecture-overview)
 
