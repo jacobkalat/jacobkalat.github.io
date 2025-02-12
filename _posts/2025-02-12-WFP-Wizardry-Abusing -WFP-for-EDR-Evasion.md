@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "WFP Wizardry: Abusing WFP for EDR Evasion"
-categories: EDR Evasion
+categories: EDR-Evasion
 author:
 - Jacob Kalat
 meta: ""
