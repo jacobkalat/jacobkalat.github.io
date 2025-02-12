@@ -11,6 +11,8 @@ This post provides a comprehensive analysis of how EDR software leverages the Wi
 
 All testing was done on a single EDR tool. Some EDR tools may use WFP differently, but techniques performed here should apply to other EDR tools. 
 
+**All testing was performed in January 2024 and reported to the EDR vendor. Since, EDR vendors may have release new controls to prevent this technique**
+
 # Background
 
 WFP is a platform provided by Windows that allows external software vendors to modify, monitor, and filter TCP/IP traffic, as well as remote procedure calls (RPCs). WFP is frequently utilized by Endpoint Detection and Response (EDR), antivirus, and Intrusion Prevention/Detection Systems (IPS/IDS) software. EDR software uses the functionality of WFP to log incoming and outbound network connections, provide data about processes making RPCs, network contain devices, and allow communications to the cloud.
@@ -55,7 +57,7 @@ EDR sensors may also creates several filters with the permit action to allow nec
 
 ![WFP DHCP Allow Filter](/assets/wfpWizardry/wfpDhcpFilter.png)
 
-Other permit filters that get added during EDR containment allow traffic to specific IP addresses outlined in the containment policy. For example, in our policy, we specified that we wanted to allow traffic to `205.185.208.98`, which is a MalwareBytes IP address. Upon containment, we observed a filter added with the following conditions.
+Other permit filters that get added during EDR containment allow traffic to specific IP addresses outlined in the containment policy. For example, in this policy, I specified that I wanted to allow traffic to `205.185.208.98`, which is a MalwareBytes IP address. Upon containment, we observed a filter added with the following conditions.
 
 ![Malwarebytes Containment Policy](/assets/wfpWizardry/mwbContainmentPolicy.png)
 
@@ -78,46 +80,56 @@ Above was my attempt to list the callouts using a custom tool. As you can see th
 
 # Hypothesis
 
-Based on the background information, the hypothesis is: manipulation of the WFP filters and callouts used by EDR systems could potentially allow an attacker to bypass or evade the EDR's network controls, security measures, and logging capabilities. This hypothesis posits that by understanding and exploiting the functionality of the Windows Filtering Platform, an attacker could disable key features of the EDR sensors, such as sending telemetry to the cloud, network containment, and firewall rules.
+Based on the background information, the hypothesis is: manipulation of the WFP filters and callouts used by EDR systems could potentially allow an attacker to bypass or evade the EDR's network controls, security measures, and logging capabilities. This hypothesis suggests that by understanding and exploiting the functionality of the Windows Filtering Platform, an attacker could disable key features of the EDR sensors, such as sending telemetry to the cloud, network containment, and firewall rules.
 
+## Testing Environment
+ - Up to date EDR Sensor as of January 2024
+ - Windows 10 - 19044
 
+## Test Case 1: Lift Network Containment by Deleting EDR Block Filters
+*Hypothesis*: A malicious actor could lift the EDR's network containment on a device by removing the blocking WFP filters that enforce containment
 
-> This quote will *change* your life. It will reveal the <i>secrets</i> of the universe, and all the wonders of humanity. Don't <em>misuse</em> it.
+### Procedure:
+1. Get keys for all filters using fwpmu.h - FwpmFilterEnum0() and filter results where “filter->action.type = FWP_ACTION_BLOCK” and “filter->displayData.name contains "EDR NAME"
+2. Delete the identified block filters from the Windows Filtering Platform using “fwpmu.h - FwpmFilterDeleteByKey0()”
+3. Verify that the network containment is lifted, and traGic is allowed by web browsing.
 
-```html
-<html>
-  <head>
-  </head>
-  <body>
-    <p>Hello, World!</p>
-  </body>
-</html>
-```
+### Validation:
 
-- First item, yo
-- Second item, dawg
-- Third item, what what?!
-- Fourth item, fo sheezy my neezy
+## Test Case 2: Network Contain Device While Allowing C2 Traffic
+*Hypothesis*: A malicious actor could potentially enforce network containment on a device by adding block filters for all traffic (including EDR telemetry), except for traffic to a C2 IP address.
 
-1. First item, yo
-2. Second item, dawg
-3. Third item, what what?!
-4. Fourth item, fo sheezy my neezy
+### Procedure:
+1. Add a block filter for all traffic that matches the layer FWPM_LAYER_ALE_AUTH_CONNECT_V4 with a higher weight then all EDR filters. Uses fwpmu.h - FwpmFilterAdd0()
+2. Add permit filter to allow all traffic at layer FWPM_LAYER_ALE_AUTH_CONNECT_V4 where the IP address is the C2 IP address
+3. Add permit filter to allow all traffic at layer FWPM_LAYER_ALE_AUTH_CONNECT_V4 where the protocol is TCP and the remote port is the C2 port
 
+### Validation:
 
-### Tables
+## Test Case 3: Blocking EDR Telemetry While Allowing All Other Traffic
+*Hypothesis*: A malicious actor could potentially block all telemetry to the EDR's cloud component by deleting the EDR's WFP filters, adding block filters for all EDR cloud component IPs, and terminating any new TCP connections to the EDR's cloud component.
 
-Title 1               | Title 2               | Title 3               | Title 4
---------------------- | --------------------- | --------------------- | ---------------------
-lorem                 | lorem ipsum           | lorem ipsum dolor     | lorem ipsum dolor sit
-lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
-lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
-lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit
+### Procedure:
+1. Kill all active connections to the EDR cloud by blocking ALL outbound connections. This uses the method described in step 1 in Test Case 2.
+2. Delete all filters created in previous step after 60 seconds
+3. Delete all EDR permit filters
+4. Enumerate all EDR filters using fwpmu.h - FwpmFilterEnum0() and filter results where filter->displayData.name contains "EDR NAME" and delete using fwpmu.h - FwpmFilterDeleteByKey()
+5. Dynamically resolve EDR cloud domains - using ws2tcpip.h - getaddrinfo().
+6. If block filter doesn’t already exist for the resolved IP, create a new block filter using fwpmu.h - FwpmFilterAdd0()
+7. Kill any active TCP connections with enumerated EDR IP address using iphlpapi.h - SetTcpEntry()
+8. Infinitely loop steps 3-7
 
+### Validation
 
-Title 1 | Title 2 | Title 3 | Title 4
---- | --- | --- | ---
-lorem | lorem ipsum | lorem ipsum dolor | lorem ipsum dolor sit
-lorem ipsum dolor sit amet | lorem ipsum dolor sit amet consectetur | lorem ipsum dolor sit amet | lorem ipsum dolor sit
-lorem ipsum dolor | lorem ipsum | lorem | lorem ipsum
-lorem ipsum dolor | lorem ipsum dolor sit | lorem ipsum dolor sit amet | lorem ipsum dolor sit amet consectetur
+## References
+https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/
+
+https://github.com/netero1010/EDRSilencer
+
+https://github.com/zodiacon/WFPExplorer
+
+https://learn.microsoft.com/en-us/windows/win32/fwp/windows-filtering-platform-architecture-overview
+
+https://learn.microsoft.com/en-us/windows/win32/api/fwpmu/
+
+https://learn.microsoft.com/en-us/windows/win32/api/fwptypes/
