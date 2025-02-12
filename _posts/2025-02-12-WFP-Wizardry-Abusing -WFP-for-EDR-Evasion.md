@@ -143,9 +143,12 @@ The right image shows that we can still reach Google. Additionally we run some c
 
 ![Blocking EDR telemetry](/assets/wfpWizardry/testcase3validation1.png)
 
-# Conclusion
-
-When we 
+# Future plans
+This project was just a proof of concept and is pretty messy. These are some ideas for some things we would like to explore in the future.
+- Clean up github repo for wfpEvasion and release to the public.
+- Attempt to modify or change EDR callout functions
+- Find better way to consistently block EDR traffic without having to repeatedly close TCP connections
+- Create BOF (beacon object file) for wfpEvasion to be used with C2 frameworks
 
 ## References
 [https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/](https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/)
