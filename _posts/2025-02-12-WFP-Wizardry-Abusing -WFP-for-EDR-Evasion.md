@@ -110,7 +110,7 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 
 ### Validation:
 
-![Network Contain but Allow C2 IP](../assets/wfpWizardry/testcase2validation1.png)
+![Network Contain but Allow C2 IP](/assets/wfpWizardry/testcase2validation1.png)
 
 ## Test Case 3: Blocking EDR Telemetry While Allowing All Other Traffic
 *Hypothesis*: A malicious actor could potentially block all telemetry to the EDR's cloud component by deleting the EDR's WFP filters, adding block filters for all EDR cloud component IPs, and terminating any new TCP connections to the EDR's cloud component.
@@ -127,7 +127,7 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 
 ### Validation:
 
-![Blocking EDR telemetry](../assets/wfpWizardry/testcase3validation1.png)
+![Blocking EDR telemetry](/assets/wfpWizardry/testcase3validation1.png)
 
 
 ## References
