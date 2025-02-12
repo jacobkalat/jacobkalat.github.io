@@ -92,7 +92,7 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 ### Procedure:
 1. Get keys for all filters using fwpmu.h - FwpmFilterEnum0() and filter results where “filter->action.type = FWP_ACTION_BLOCK” and “filter->displayData.name contains "EDR NAME"
 2. Delete the identified block filters from the Windows Filtering Platform using “fwpmu.h - FwpmFilterDeleteByKey0()”
-3. Verify that the network containment is lifted, and traGic is allowed by web browsing.
+3. Verify that the network containment is lifted, and traffic is allowed by web browsing.
 
 ### Validation:
 
