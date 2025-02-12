@@ -9,7 +9,7 @@ meta: ""
 
 **Contributors** | [Jacob Kalat](https://www.linkedin.com/in/jacob-kalat/) | [Casian Ciobanu](https://www.linkedin.com/in/casian-ciobanu-47455587/)
 
-This project was inspired by the tool (EDRSilencer)[https://github.com/netero1010/EDRSilencer]. When testing this tool, we found it only attempted to block traffic from EDR user-mode processes. We found that this did not work against our EDR product, as it sends telemtry to its cloud component from its kernel-mode component. This raised the question: How can we abuse WFP against our EDR?
+This project was inspired by the tool [EDRSilencer](https://github.com/netero1010/EDRSilencer). When testing this tool, we found it only attempted to block traffic from EDR user-mode processes. We found that this did not work against our EDR product, as it sends telemtry to its cloud component from its kernel-mode component. This raised the question: How can we abuse WFP against our EDR?
 
 This post provides an analysis of how EDR software leverages the Windows Filtering Platform (WFP) to manage network filtering capabilities. Using this knowledge, we can better understand how an attacker may disable features of EDR sensors, such as sending telemetry to the cloud, network containment, firewall rules, and more, to evade defenses. 
 
