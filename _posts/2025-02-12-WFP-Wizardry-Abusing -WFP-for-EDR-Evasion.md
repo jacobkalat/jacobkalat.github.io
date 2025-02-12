@@ -96,6 +96,10 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 
 ### Validation:
 
+![Device in EDR Containment](/assets/wfpWizardry/testcase1validation1.png)
+
+![Containment Lifted](/assets/wfpWizardry/testcase1validation2.png)
+
 ## Test Case 2: Network Contain Device While Allowing C2 Traffic
 *Hypothesis*: A malicious actor could potentially enforce network containment on a device by adding block filters for all traffic (including EDR telemetry), except for traffic to a C2 IP address.
 
@@ -105,6 +109,8 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 3. Add permit filter to allow all traffic at layer FWPM_LAYER_ALE_AUTH_CONNECT_V4 where the protocol is TCP and the remote port is the C2 port
 
 ### Validation:
+
+![Network Contain but Allow C2 IP](../assets/wfpWizardry/testcase2validation1.png)
 
 ## Test Case 3: Blocking EDR Telemetry While Allowing All Other Traffic
 *Hypothesis*: A malicious actor could potentially block all telemetry to the EDR's cloud component by deleting the EDR's WFP filters, adding block filters for all EDR cloud component IPs, and terminating any new TCP connections to the EDR's cloud component.
@@ -120,6 +126,9 @@ Based on the background information, the hypothesis is: manipulation of the WFP 
 8. Infinitely loop steps 3-7
 
 ### Validation:
+
+![Blocking EDR telemetry](../assets/wfpWizardry/testcase3validation1.png)
+
 
 ## References
 [https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/](https://scorpiosoftware.net/2022/12/25/introduction-to-the-windows-filtering-platform/)
